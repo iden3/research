@@ -1,0 +1,77 @@
+%% Pedersen hash implementation standard %%
+
+% TELL THEM: These are things we are improving, so it is a draft. Let me know if there is anything else I should add.
+
+\documentclass[11pt]{article}
+\usepackage[colorlinks=true,
+			urlcolor=black,
+			linkcolor=black,
+			citecolor=black
+			]{hyperref} 
+
+\input{preamble}
+
+\title{Pedersen hash implementation \vspace{-0.2cm}}
+\author[1]{Author 1}
+\author[2]{Author 2}
+\author[1]{Author 3}
+\affil[1]{Affiliation 1}
+\affil[2]{Affiliation 2}
+\date{} %% if you don't need date to appear
+\setcounter{Maxaffil}{0}
+\renewcommand\Affilfont{\itshape\small}
+% \includegraphics[scale=0.3]{iden3.png} 
+
+\begin{document}
+%\begin{spacing}{1.2}	
+	{\maketitle} 
+%	\vspace{1.5cm}
+	\red{{\bf JORDI:}
+		\begin{itemize}
+			\item All Montgomery? Then it is $-(x,y) = (x,-y)$!
+				  %https://github.com/zcash/zcash/issues/2234
+			\item Authors and affiliations
+			\item Sure $k=5$ i no $k=7$?
+			\item Challenges section? (Nothing? Com fer-ho per encadenar-los?)
+			\item Segur que Keccak i no Blake-2s? Tot està implementat amb aquest últim hash. 
+			\item Intellectual property, què posem?
+		\end{itemize}
+	}
+	\tableofcontents
+	
+	%\vspace{0.5cm}
+	
+	\newpage
+	
+	\section{Scope, motivation and background}						\input{motivation}	
+	
+	\section{Terminology}	
+		\subsection{Elliptic curve: Baby-Jubjub \red{Montgomery??}} \input{baby-jubjub}
+		\subsection{Pedersen hash}									\input{pedersen-definition}
+	
+	\section{Description}
+	
+	\subsection{Set of generators} 									\input{generators}
+		\subsection{Computation of the Pedersen hash}				\input{computation}	
+		\label{sec-computation}
+		\subsection{\red{Example}}
+		
+	\section{Challenges, security and efficiency}
+
+	\red{DIR QUE ESTEM A MONTGOMERY PERÒ QUE NO HI HA PROBLEMES: NO REPETIM PUNTS I NO SUMEM MAI EL 0. }
+	
+		\subsection{There is no overflow}	 						\input{no-overflow}
+		\subsection{Number of constraints per bit \red{-- canviar lleugerament la redacció!} }
+																	\input{cost}		
+			
+	\section{Implementation}										\input{implementation}
+	
+	\section {Intellectual Property \red{-- Jordi}}					\input{intellectual-property}
+
+	% \newpage
+	\addcontentsline{toc}{section}{References}
+	\bibliographystyle{acm}
+	\bibliography{lit}	
+
+%\end{spacing}	
+\end{document}

@@ -1,10 +1,13 @@
-We have seen we use a windowed scalar multiplication algorithm with signed digits. Each 4-bit message chunk corresponds to a window called \textsc{selector} and each chunk is encoded as an integer from the set $\{-8..8\}\backslash \{0\}$. % and we allow to have up to $50$ windows. 
+As we described in section \ref{sec-computation}, 
+%We have seen 
+we use a windowed scalar multiplication algorithm with signed digits. Each 4-bit message chunk corresponds to a window called \textsc{selector} and each chunk is encoded as an integer from the set $\{-8..8\}\backslash \{0\}$. % and we allow to have up to $50$ windows. 
 This allows a more efficient lookup of the window entry for each chunk than if the set $\{1..16\}$ had been used, because a point can be conditionally negated using only a single constraint \cite{sapling}.\\
 % Sapling, the new network upgrade of Zcash, uses 3-bit windows but we propose to use 4-bit windows, as it requires less constraints per bit.\\
 
-As we have up to 50 segments per each generator $P_i$, the largest multiple of the generator $P_i$ is $n\cdot P_i$ with 
+As there are up to 50 segments per each generator $P_i$, the largest multiple of the generator $P_i$ is $n\cdot P_i$ with 
 $$n = 2^0 \times8 + 2^5 \times 8 + \left(2^5\right)^2 \times8 \dots + 	2^{245}\times 8 .$$
-We have to make sure that this number is smaller than $(r-1)/2$, where $r$ is the order of the large prime subgroup of the curve.  Indeed,
+To avoid overflow, this number should be smaller than $(r-1)/2$. Indeed,
+%We have to make sure that this number is smaller than $(r-1)/2$, where $r$ is the order of the large prime subgroup of the curve.  Indeed,
 \begin{align*}
 	\quad\; n 
 	& = 8 \times \sum_{ k = 0}^{49} 2^{5k}

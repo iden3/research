@@ -1,8 +1,7 @@
-Let $M$ be a sequence of bits. We construct the Pedersen hash of $M$ as follows:
+Let $M$ be a sequence of bits. %, that is, $M\in \{0,1\}^*$. 
+The {\it Pedersen hash} function of $M$ is defined as follows:
 \begin{itemize}
-	\item Sample $P_0,P_1,\dots,P_k$ uniformly in $\G$ (for some specified integer $k$). % Cal que k geq l.
-							% In our case $k=5$.
-	% Let $P_0,P_1,\dots,P_k$ be uniformly sampled generators of $\G$. 
+	\item Let $P_0,P_1,\dots,P_k$ be uniformly sampled generators of $\G$ (for some specified integer $k$). 
 	% These points only need to be computed once.
 	% En el codi de Jordi: allò de typeof?
 	\item   Split $M$ into sequences of 4 bits{\footnote{If $M$ is not a multiple of 4, pad $M$ to a multiple of 4 bits by appending zero bits.}}. 
@@ -35,5 +34,3 @@ Let $M$ be a sequence of bits. We construct the Pedersen hash of $M$ as follows:
 	so itself is also an element of $\G$. 
 	That is, the resulting Pedersen hash $H(M)$ is a point of the elliptic curve $E$ of order $r$.
 \end{itemize}
-
-The computation of the Pedersen hash has two steps: first, the base points $P_0, P_1, \dots, P_k$ need to be generated. This only needs to be done once, as they can be reused to compute hashes of other data. And secondly, the calculation of expression (\ref{eq-ped}). The circuits used to compute this sum are quite similar to the ones used to calculate the multiple of a point of an elliptic curve except that here we only work with the twisted Edwards form of $E$ and we can have many points precalculated, so instead of doubling all the time, we work with look-up tables. 

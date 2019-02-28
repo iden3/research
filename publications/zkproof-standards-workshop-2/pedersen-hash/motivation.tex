@@ -1,0 +1,10 @@
+	% Scope: a section specifying the scope of the standard, highlighting what is being standardized and what is not.
+	% Motivation: a section describing at least one concrete application motivating the proposed standard, including an explanation of why the community will benefit from such a standard.
+	% Background: a section introducing the problem, including definitions, references to previous work and other background details.	
+	Roughly speaking, the Pedersen hash is a secure hash function that maps a sequence of bits to a point in %a large subgroup of 
+	an elliptic curve \cite{pedersen-gen}. The big advantage of % using 
+	this hash is the fact that it is very efficient to compute inside a circuit, so it suits zk-SNARK very well [REF]. \\
+	% Discussion about its efficiency inside circuits:
+	% https://github.com/zcash/zcash/issues/2258
+
+	The Pedersen hash has already been defined and used by the ZCash team in Sapling, their latest network upgrade \cite{sapling}. They construct it on Jubjub elliptic curve and using 3-bit lookup tables. In this document, we propose an implementation of the Pedersen hash function using Baby-Jubjub elliptic curve and 4-bit windows, which requires less constraints per bit than using 3-bit windows. \\

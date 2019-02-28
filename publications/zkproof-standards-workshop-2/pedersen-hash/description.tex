@@ -1,0 +1,4 @@
+	The computation of the Pedersen hash has two steps: first, the generation of the base points $P_0, P_1, \dots, P_5$ (we take $k=5$). This only needs to be done only once, as they can be reused to compute hashes of other data {[REF?]}. Secondly, the calculation of expression (\ref{eq-ped}). We describe in terms of circuits how to do such computation and provide an example explaining both steps.  
+	% We describe in terms of circuits and with an example, how to do it. 
+	% The circuits used to compute this sum are quite similar to the ones used to calculate the multiple of a point of an elliptic curve except that here we only work with the twisted Edwards form of $E$ and we can have many points precalculated, so instead of doubling all the time, we work with look-up tables. 
+	

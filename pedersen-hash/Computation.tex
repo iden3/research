@@ -1,5 +1,4 @@
 In \textsc{pedersen hash}, we have depicted the circuit used to compute (equatio \ref{eq-ped}). Each \textsc{multiplication} box returns one term of the sum. 
-
 %that takes, per bit, that many constraints (of a circuit). 
 
 \begin{figure}[h]
@@ -16,13 +15,3 @@ As the set of generators are fixed, we can precompute its multiples and use 4-bi
 \end{figure}
 
 The circuit receives as input a 4-bit chunk. The first three bits are used to select the right multiple of the point and last bit decides the sign of the point. Recall that negation on a point of a twisted Edwards curve corresponds to negation of its first coordinate. 
-
-%
-%
-%{\bf{Diagram}}	\\\vspace{-0.3cm}				%\input{Mult-diagram}
-%
-%Let $G$ be one of the generators. Consider a 4-bit window \fbox{$s_0$}\fbox{$s_1$}\fbox{$s_2$}\fbox{$s_3$} . Bit $s_3$ is used to determine the sign and $s_0, s_1, s_2$ the point. \\
-%
-%
-%
-%
