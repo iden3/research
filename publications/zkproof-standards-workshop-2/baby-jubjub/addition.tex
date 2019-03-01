@@ -2,15 +2,15 @@ When adding points of elliptic curves %usually
 in Montgomery form,  
 one has to be careful if the points being added are equal (doubling) or not (adding) and if one of the points is the point at infinity \cite{montgomery}. 
 %
-Twisted Edwards curves have the advantage that there is no such case distinction and doubling can be performed with exactly the same formula as addition \cite{twisted}. 
+Edwards curves have the advantage that there is no such case distinction and doubling can be performed with exactly the same formula as addition \cite{twisted}. 
 %
 In comparison, operating in Montgomery curves is cheaper. In this section, we summarize how addition and doubling is performed in both forms. 
 %
-For the exact number of operations required in different forms of elliptic curves, see \cite{operations-cost}.
+For the exact number of operations required in different forms of elliptic curves, see \cite{twisted}.
 
 \begin{itemize}
 	
-	\item \underline{Twisted Edwards}: 	
+	\item \underline{Edwards}: 	
 	% https://eprint.iacr.org/2008/013.pdf (sec 6)
 	Let $\point{1}$ and $\point{2}$ be points of the Baby-Jubjub twisted Edwards elliptic curve $E$. The sum $P_1 + P_2$ is a third point $P_3 = (x_3, y_3)$ with 
 		\begin{align*}

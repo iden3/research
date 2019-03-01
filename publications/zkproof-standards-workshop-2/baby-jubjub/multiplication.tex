@@ -1,4 +1,4 @@
-Let $P\not= O$ be a point of the twisted Edwards curve $E$ of order strictly greater than 8 and let $k$ a binary number representing an element of $\Fp$. We describe the circuit used to compute the point $k\cdot P$.
+Let $P\not= O$ be a point of the Edwards curve $E$ of order strictly greater than 8 (i.e. $P\in\G$) and let $k$ a binary number representing an element of $\Fp$. We describe the circuit used to compute the point $k\cdot P$.
 
 \begin{enumerate}
 	
@@ -41,7 +41,7 @@ Let $P\not= O$ be a point of the twisted Edwards curve $E$ of order strictly gre
 		\vspace{0.3cm}
 	\end{figure}
 
-	The idea of the circuit is to first compute some point 		
+	The idea of the circuit is to first compute %some point 		
 		$$	Q = P_i + b_1 \cdot (2P_i) + b_2 \cdot (4P_i) 
 				+ b_3 \cdot (8P_i) + \dots + b_{247} \cdot (2^{247}P_i), $$
 	and output the point

@@ -1,6 +1,7 @@
 %% Pedersen hash implementation standard %%
 
 % TELL THEM: These are things we are improving, so it is a draft. Let me know if there is anything else I should add.
+% B-JJ vs. B JJ
 
 \documentclass[11pt]{article}
 \usepackage[colorlinks=true,
@@ -11,12 +12,17 @@
 
 \input{preamble}
 
-\title{Pedersen hash implementation \vspace{-0.2cm}}
-\author[1]{Author 1}
-\author[2]{Author 2}
-\author[1]{Author 3}
-\affil[1]{Affiliation 1}
-\affil[2]{Affiliation 2}
+\makeatletter
+\renewcommand\AB@affilsepx{, \protect\Affilfont}
+\makeatother
+
+\title{4-bit windowed Pedersen hash on Baby Jubjub elliptic curve \vspace{-0.2cm}}
+\author[1]{Jordi Baylina}
+\author[2]{Barry WhiteHat}
+\author[1,3]{Marta Bellés}
+\affil[1]{iden3}
+\affil[2]{Ethereum foundation}
+\affil[3]{Universitat Pompeu Fabra}
 \date{} %% if you don't need date to appear
 \setcounter{Maxaffil}{0}
 \renewcommand\Affilfont{\itshape\small}
@@ -30,11 +36,9 @@
 		\begin{itemize}
 			\item All Montgomery? Then it is $-(x,y) = (x,-y)$!
 				  %https://github.com/zcash/zcash/issues/2234
-			\item Authors and affiliations
 			\item Sure $k=5$ i no $k=7$?
 			\item Challenges section? (Nothing? Com fer-ho per encadenar-los?)
 			\item Segur que Keccak i no Blake-2s? Tot està implementat amb aquest últim hash. 
-			\item Intellectual property, què posem?
 		\end{itemize}
 	}
 	\tableofcontents
@@ -54,7 +58,7 @@
 	\subsection{Set of generators} 									\input{generators}
 		\subsection{Computation of the Pedersen hash}				\input{computation}	
 		\label{sec-computation}
-		\subsection{\red{Example}}
+		\subsection{Examples and test vectors}
 		
 	\section{Challenges, security and efficiency}
 
@@ -66,7 +70,9 @@
 			
 	\section{Implementation}										\input{implementation}
 	
-	\section {Intellectual Property \red{-- Jordi}}					\input{intellectual-property}
+	\section {Intellectual Property}					
+	Creative Commons.
+	%\input{intellectual-property}
 
 	% \newpage
 	\addcontentsline{toc}{section}{References}
