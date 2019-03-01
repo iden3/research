@@ -46,7 +46,7 @@
 \section{Background}
 	\input{background}
 
-\section{Terminology and description}
+\section{Terminology And Description}
 	\subsection{Generation of Baby Jubjub}
 
 	In 2016, a group of researchers of IRPF designed a deterministic algorithm that, given a prime number $p$, it returns the elliptic curve defined over $\Fp$ with smallest coefficient $A$ such that $A-2$ is a multiple of 4 and equation $y^2 = x^3 + Ax^2 + x$ describes a Montgomery curve. The assumption $A-2$ divisible by 4 comes from the fact that as 
@@ -168,13 +168,13 @@
 %%	és = 1 mòdul 4.
 
 
-	\subsection{Definition of Baby Jubjub} \input{baby-jubjub}	
+	\subsection{Definition Of Baby Jubjub} \input{baby-jubjub}
 	From now on, let 
 		$$	p = 21888242871839275222246405745257275088548364
 				400416034343698204186575808495617 $$
 	and $\Fp$ the finite field with $p$ elements. 
 	
-		\subsubsection{Montgomery form}
+		\subsubsection{Montgomery Form}
 		%\input{baby-jubjub-montgomery}
 		We define $E_M$ as the {\it Baby-Jubjub} Montgomery elliptic curve defined over $\Fp$ given %described
 		by equation
@@ -185,7 +185,7 @@
 		is a prime number. Denote by $\G$ the subgroup of points of order $r$, that is, %of $E$ 
 		$$\G = \Set{ P \in E(\Fp) | r P = O  }.$$
 
-		\subsubsection{Edwards form}
+		\subsubsection{Edwards Form}
 		$E_M$ is birationally equivalent to the Edwards elliptic curve %[REF] defined by  
 			$$	E: x^2 + y^2 = 1 +  d x^2 y^2 $$
 		where
@@ -200,13 +200,14 @@
 		$$ (u, v) \to (x, y) = \left(  \frac{u}{v}, \frac{u - 1}{u + 1}   \right). $$
 		
 	%\input{baby-jubjub-edwards}
-	\subsection{Arithmetic in the elliptic curve}
+	\subsection{Arithmetic In The Elliptic Curve}
 	In this section we define how to operate on the elliptic curve group: %two operations supported in the elliptic curve group: 
 	the addition of points and multiplication of a point by a scalar (an element of $\Fp$).
-	 	\subsubsection{Addition of points} \input{addition}
-	 	\subsubsection{Multiplication of a point of $E$ by a scalar} \input{multiplication}
+	 	\subsubsection{Addition Of Points} \input{addition}
+	 	\subsubsection{Multiplication Of A Point Of $E$ By A Scalar} \input{multiplication}
 
-\section{Challenges and security}	\input{security}
+\section{Challenges And Security}
+	\input{security}
 	As required in the construction of Baby-Jubjub, the curve satisfies SafeCurves criteria. This can be checked following \cite{github-barry}.
 	
 \section{Implementation}		%	\input{implementation}		
