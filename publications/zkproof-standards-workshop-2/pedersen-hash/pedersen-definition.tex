@@ -4,24 +4,24 @@ The {\it Pedersen hash} function of $M$ is defined as follows:
 	\item Let $P_0,P_1,\dots,P_k$ be uniformly sampled generators of $\G$ (for some specified integer $k$). 
 	% These points only need to be computed once.
 	% En el codi de Jordi: allò de typeof?
-	\item   Split $M$ into sequences of 4 bits{\footnote{If $M$ is not a multiple of 4, pad $M$ to a multiple of 4 bits by appending zero bits.}}. 
+	\item   Split $M$ into sequences of at most bits and each of those into chunks of 4 bits{\footnote{If $M$ is not a multiple of 4, pad $M$ to a multiple of 4 bits by appending zero bits.}}. 
 	More precisely, write  
 	\begin{gather*}
-		M = M_1M_2\dots M_l 
+		M = M_0M_1\dots M_l 
 		\quad\text{where}\quad
-		M_i = m_1m_2\dots m_{k_i}
+		M_i = m_0m_1\dots m_{k_i}
 		\quad\text{with}\quad 
 		\begin{cases}
-			k_i = 50 	\;\text{ for }  i = 0, \dots, l-1, \\
-			k_l \leq 50,
+			k_i = 49 	\;\text{ for }  i = 0, \dots, l-1, \\
+			k_i \leq 49 \;\text{ for }  i = l.
 		\end{cases}
 	\end{gather*}
-	where the $m_j$ terms are 4-bit chunks $[b_0^j\: b_1^j\: b_2^j\: b_3^j]$. 
+	where the $m_j$ terms are 4-bit chunks $[b_0\: b_1\: b_2\: b_3]$. 
 	Define  
-	$$ enc(m_j) = (2b_3^j-1) 
-		\cdot (1+b_{0}^j+2b_{1}^j+4b^j_{2}) $$
+	$$ enc(m_j) = (2b_3-1) 
+		\cdot (1+b_{0}+2b_{1}+4b_{2}) $$
 	and let 
-	$$ \langle M_i \rangle = \sum_{j=1}^{k_i} enc(m_j) \cdot 2^{5(j-1)}.	$$
+	$$ \langle M_i \rangle = \sum_{j=0}^{k_i-1} enc(m_j) \cdot 2^{5(j-2)}.	$$
 	We define the Pedersen hash of $M$ as
 	\begin{equation}
 	\label{eq-ped}

@@ -21,6 +21,7 @@
 \author[1]{Jordi Baylina}
 \author[2]{Barry WhiteHat}
 \author[1,3]{Marta Bellés}
+\author[1]{Jacques Dafflon}
 \affil[1]{iden3}
 \affil[2]{Ethereum foundation}
 \affil[3]{Universitat Pompeu Fabra}
@@ -34,70 +35,50 @@
 	{\maketitle}
 	\vspace{-0.2cm}
 %	\vspace{1.5cm}
-	\red{{\bf JORDI:}
-		\begin{itemize}
-			\item All Montgomery? Then it is $-(x,y) = (x,-y)$!
-				  %https://github.com/zcash/zcash/issues/2234
-			\item Sure $k=5$ i no $k=7$?
-			\item Challenges section? (Nothing? Com fer-ho per encadenar-los?)
-			\item Segur que Keccak i no Blake-2s? Tot està implementat amb aquest últim hash. 
-		\end{itemize}
-	}
-    {\color{purple}{\bf Jacques:}
-        \begin{itemize}
-            \item Split Scope, motivation and background in three sections
-			\item Add missing ``the'' at the end of Terminolgoy Elliptic curve: Baby-Jubjub
-			\item Use ``Title Case'' for all titles
-			\item Move Efficiency (cost) to Implementation
-			\item Move Overflow to Security
-			\item Write IP section
-        \end{itemize}
-    }
 	\tableofcontents
 	
 	%\vspace{0.5cm}
 	
 	\newpage
 
-    \section{Scope {\color{purple} - Edited by Jacques}}
+    \section{Scope}
         \input{scope}
-	\section{Motivation {\color{purple} - Edited by Jacques}}
+	\section{Motivation}
         \input{motivation}
-    \section{Background {\color{purple} - Edited by Jacques}}
+    \section{Background}
         \input{background}
 
 	\section{Terminology}	
-		\subsection{Elliptic Curve: Baby-Jubjub \red{Montgomery??} {\color{purple} Title Case}}
+		\subsection{Elliptic Curve: Baby-Jubjub}
 			\input{baby-jubjub}
-		\subsection{Pedersen Hash {\color{purple} Title Case}}
+		\subsection{Pedersen Hash}
 			\input{pedersen-definition}
 	
 	\section{Description}
 	
-	\subsection{Set Of Generators {\color{purple} Title Case}}
+	\subsection{Set Of Generators}
 		\input{generators}
-		\subsection{Computation Of The Pedersen Hash {\color{purple} Title Case}}
+		\subsection{Computation Of The Pedersen Hash}
 		\input{computation}
 		\label{sec-computation}
-		\subsection{Examples And Test Vectors {\color{purple} Title Case}}
+		\subsection{Examples And Test Vectors}
 		
 	\section{Challenges}
 	\input{challenges}
 
 	\section{Security}
-		\red{DIR QUE ESTEM A MONTGOMERY PERÒ QUE NO HI HA PROBLEMES: NO REPETIM PUNTS I NO SUMEM MAI EL 0. }
-		\subsection{\color{purple} Overflow Prevention}
+%		\red{DIR QUE ESTEM A MONTGOMERY PERÒ QUE NO HI HA PROBLEMES: NO REPETIM PUNTS I NO SUMEM MAI EL 0. }
+		\subsection{Overflow Prevention}
 			\input{no-overflow}
 
 			
 	\section{Implementation}
-		\subsection{A Note On Efficency {\color{purple} Moved as a subsection of Implementation by Jacques}}
-			\subsection{Number Of Constraints Per Bit \red{-- canviar lleugerament la redacció!} {\color{purple} Title Case}}
+		\subsection{A Note On Efficency: Number Of Constraints Per Bit}
 			\input{cost}
 		\subsection{Existing Implementations}
 			\input{implementation}
 
-	\section {Intellectual Property \red{-- Jordi} {\color{purple} Written by Jacques}}
+	\section {Intellectual Property}
 		\input{intellectual-property.tex}
 
 	% \newpage
