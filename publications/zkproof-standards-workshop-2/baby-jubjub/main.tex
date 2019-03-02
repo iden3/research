@@ -17,7 +17,6 @@
 \author[1]{Barry WhiteHat}
 \author[2]{Jordi Baylina}
 \author[2,3]{Marta Bellés}
-\author[2]{Jacques Dafflon}
 \affil[1]{Ethereum foundation}
 \affil[2]{iden3}
 \affil[3]{Universitat Pompeu Fabra}
@@ -47,14 +46,14 @@
 	\input{background}
 
 \section{Terminology And Description}
-	\subsection{Generation of Baby Jubjub}
+	\subsection{Generation Of Baby Jubjub}
 
 	In 2016, a group of researchers of IRPF designed a deterministic algorithm that, given a prime number $p$, it returns the elliptic curve defined over $\Fp$ with smallest coefficient $A$ such that $A-2$ is a multiple of 4 and equation $y^2 = x^3 + Ax^2 + x$ describes a Montgomery curve. The assumption $A-2$ divisible by 4 comes from the fact that as 
 	this value is used in many operations, so trying to keep it smaller and divisible by four is a reasonable assumption \cite{generation-baby}. \\
 
 	SafeCurves is a project that checks some of the most common and known attacks on several elliptic curves. It also provides the algorithm it was used \cite{safe-curves}.\\ 
 	
-	We considered the large prime number dividing the order of BN128 and run algorithm A.1 from \cite{generation-baby}. The first elliptic curve it was returned  satisfying SafeCurves criteria was the Montgomery curve with coefficient $A = 168698$. This curve was named Baby Jubjub elliptic curve.  
+	We considered the large prime number dividing the order of BN128 and run algorithm A.1 from \cite{generation-baby}. The first elliptic curve it was returned  satisfying SafeCurves criteria was the Montgomery curve with coefficient $A = 168698$. We named this curve Baby Jubjub elliptic curve.  
 %	
 %	SafeCurves: choosing safe curves for elliptic-curve cryptography. 
 %	
@@ -193,15 +192,15 @@
 		
 		% \subsubsection{Birational equivalence}
 	
-		The birational equivalence [REF] from $E$ to $E_M$ is the map
+		The birational equivalence \cite[Thm. 3.2]{twisted} from $E$ to $E_M$ is the map
 		% These results are from \cite[Theorem 3.2]{twisted}. 
 		$$ (x,y) \to (u,v) = \left( \frac{1 + y}{1 - y} , \frac{1 + y}{(1 - y)x} \right) $$
 		with inverse from $E_M$ to $E$
 		$$ (u, v) \to (x, y) = \left(  \frac{u}{v}, \frac{u - 1}{u + 1}   \right). $$
 		
 	%\input{baby-jubjub-edwards}
-	\subsection{Arithmetic In The Elliptic Curve}
-	In this section we define how to operate on the elliptic curve group: %two operations supported in the elliptic curve group: 
+	\subsection{Arithmetic In Baby Jubjub}
+	In this section we define how to operate in the elliptic curve group: %two operations supported in the elliptic curve group: 
 	the addition of points and multiplication of a point by a scalar (an element of $\Fp$).
 	 	\subsubsection{Addition Of Points} \input{addition}
 	 	\subsubsection{Multiplication Of A Point Of $E$ By A Scalar} \input{multiplication}

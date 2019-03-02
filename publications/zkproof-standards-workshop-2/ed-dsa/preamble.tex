@@ -15,6 +15,8 @@
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor} 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}  % If called \ceil*{x} it will add left/right.
 
+\usepackage{braket}
+
 %\usepackage{algorithmicx}
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
@@ -42,7 +44,7 @@
 
 
 \textwidth 16 cm
-\textheight 22 cm
+\textheight 20 cm
 \topmargin -1 cm
 \oddsidemargin -0 cm
 
@@ -57,6 +59,7 @@
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\Fp}{\ensuremath{\mathbb{F}_p}}
 \newcommand{\Fr}{\ensuremath{\mathbb{F}_r}}
+\newcommand{\Fl}{\ensuremath{\mathbb{F}_l}}
 \newcommand{\G}{\ensuremath{\mathbb{G}}}
 \newcommand{\point}[1]{P_{#1} = (x_{#1}, y_{#1})}
 \newcommand{\llog}{\log_2}
@@ -64,6 +67,8 @@
 \newcommand{\minSize}{1.5em}
 \newcommand{\gen}[1]{\ensuremath{\langle #1\rangle}}
 \newcommand{\noi}{\noindent}
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
 
 \tikzset{%
 	leaf/.style = {draw, fill}, %, minimum size=\minSize},

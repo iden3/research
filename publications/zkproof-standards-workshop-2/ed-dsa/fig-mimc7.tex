@@ -1,0 +1,35 @@
+% !TEX root =/Users/martabellesmunoz/Dropbox/Documents/Especificacions/Merkle trees/Description.tex
+
+\tikzstyle{exp} = [draw, minimum size=2em] % fill=blue!20,
+\tikzstyle{init} = [pin edge={to-,thin,black}]
+\tikzset{XOR/.style={draw,circle,append after command={
+        [shorten >=\pgflinewidth, shorten <=\pgflinewidth,]
+        (\tikzlastnode.north) edge (\tikzlastnode.south)
+        (\tikzlastnode.east) edge (\tikzlastnode.west)
+        }}
+}
+
+\begin{center}
+\begin{tikzpicture}[node distance=1.5cm, auto,>=latex']
+
+    \node  (in) {$x$};
+    \node [XOR, pin={[init]above:$k$}] (xor0) [right of=in, node distance=1cm]  { };
+    \node [exp] (e0) [right of=xor0] {$x^7$};
+    \node [XOR, pin={[init]above:$k \oplus c_1 $}] (xor1) [right of=e0] { };
+    \node [exp] (e1) [right of=xor1] {$x^7$};
+    \node [XOR, pin={[init]above:$k \oplus c_{r-1} $}] (xorr-1) [right of=e1, node distance=4cm] { };
+    \node [exp] (er-1) [right of=xorr-1] {$x^7$};
+    \node [XOR, pin={[init]above:$k \oplus c_r $}] (xor)  [right of=er-1] { };
+    \node  (out)  [right of=xor, node distance=1cm] {$y$};
+
+    \path[->] (in) edge node { } (xor0);
+    \path[->] (xor0) edge node { } (e0);
+    \path[->] (e0) edge node { } (xor1);
+    \path[->] (xor1) edge node { } (e1);
+    \path[->] (e1) edge[dotted] node { } (xorr-1);
+    \path[->] (xorr-1) edge node {} (er-1);
+    \path[->] (er-1) edge node { } (xor);
+    \path[->] (xor) edge node { } (out);
+   
+\end{tikzpicture}
+\end{center}
