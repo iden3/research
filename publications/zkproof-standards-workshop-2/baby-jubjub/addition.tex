@@ -14,9 +14,9 @@ For the exact number of operations required in different forms of elliptic curve
 	% https://eprint.iacr.org/2008/013.pdf (sec 6)
 	Let $\point{1}$ and $\point{2}$ be points of the Baby-Jubjub twisted Edwards elliptic curve $E$. The sum $P_1 + P_2$ is a third point $P_3 = (x_3, y_3)$ with 
 		\begin{align*}
-			&\lambda = 168696 x_1x_2y_1y_2,\\
+			&\lambda = d x_1x_2y_1y_2,\\
 			&x_3 = (x_1y_2 + y_1x_2) / (1 + \lambda),\\
-			&y_3 = (y_1y_2 - 168700 x_1x_2) / (1 - \lambda).
+			&y_3 = (y_1y_2 - x_1x_2) / (1 - \lambda).
 		\end{align*}
 	Note that the neutral element is the point $O = (0,1)$ and the inverse of a point $(x,y)$ is $(-x,y)$.
 
@@ -30,7 +30,7 @@ For the exact number of operations required in different forms of elliptic curve
 		\label{eq-ted}
 		\begin{split}
 			&\Lambda = (y_2-y_1)/ (x_2-x_1),\\
-			&x_3 = \Lambda^2 - 168698 - x_1 - x_2,\\
+			&x_3 = \Lambda^2 - A - x_1 - x_2,\\
 			&y_3 = \Lambda(x_1- x_3) - y_1.
 		\end{split}
 		\end{align}
@@ -40,8 +40,8 @@ For the exact number of operations required in different forms of elliptic curve
 		\begin{align}
 		\label{eq-mont}
 		\begin{split}
-			&\Lambda = (3x_1^2 + 2Ax_1 + 1)/ (2By_1),\\
-			&x_3 = B\Lambda^2 - A - 2x_1,\\
+			&\Lambda = (3x_1^2 + 2Ax_1 + 1)/ (2y_1),\\
+			&x_3 = \Lambda^2 - A - 2x_1,\\
 			&y_3 = \Lambda(x_1- x_3) - y_1.
 		\end{split}	
 		\end{align}
