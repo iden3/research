@@ -11,12 +11,19 @@
 The *Pedersen hash* of a sequence of bits `M` is constructed as follows:
 
 - Split `M` into sequences of at most 186 bits: `M = M_0 M_1 ... M_l`.
-- Divide each of these `M_i` sequences into smaller chunks of 3 bits. <!-- (If `M` is not a multiple of 3, pad `M` to a multiple of 3 bits by appending zero bits.) --> 
-More precisely, write `M_i = m_0 m_1 ... m_{k_i-1}`, where each term `m_j` is a chunk of 3 bits `[b_0 b_1 b_2]`. When `i = 0,..., l-1` then `k_i = 62` and for `i = l`, then `k_i <= 62`.
+- Divide each of these `M_i` sequences into smaller chunks of 3 bits. <!-- (If `M` is not a multiple of 3, pad `M` to a multiple of 3 bits by appending zero bits.) --> More precisely, write 
+    ``` 
+    M_i = m_0 m_1 ... m_{k_i-1}
+    ```
+    where each term `m_j` is a chunk of 3 bits `[b_0 b_1 b_2]`. When `i = 0,..., l-1` then `k_i = 62` and for `i = l`, then `k_i <= 62`.
 
 - Encode each chunk `m_j` as an integer from the set [-4..-1,1..4] the following way:
-```enc(m_j) = 1+b_0+2*b_1) (1 - 2*b_2)```
-and let 
+
+    ```
+    enc(m_j) = 1+b_0+2*b_1) (1 - 2*b_2)
+    ```
+    and let 
+
     ```
     <M_i> = enc(m_0) + enc(m_1)*2^4 + enc(m_2)*2^8 + ... + enc(m_{k_i-1})*2^{4*(k_i-1)}
     ```
