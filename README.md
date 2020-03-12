@@ -2,12 +2,17 @@
 This repository contains research papers written by the iden3 team.
 
 # Structure
-Up to date there are two different directories: `pedersen-hash` and `ZKProof-Workshop-2019`. All research documents are writen in LaTeX. To generate a PDF, clone the repository and compile the `main.tex` files.
+Up to date there are three different directories: `articles`, `documentation` and `ZKProof-Workshop-2019`.
 
-## pedersen-hash
-It contains an old version of the description the Pedersen Hash function implementation using Baby Jubjub elliptic curve and 4-bit windows. This document is obsolete, as it has been shown by Zcash team that the usage of 3-bit windows is more efficient.
+## `documentation`
 
-## ZKProof-Workshop-2019
+It contains the description of different cryptographic protocols used in iden3. The documents are written in MarkDown.
+
+## `articles`
+
+It contains the articles that are or will be submitted to scientific journals and magazines. These documents are written in LaTeX.
+
+## `ZKProof-Workshop-2019`
 It contains four standard proposals written for the ZKProof Workshop 2019, which took place in Berkeley last 10-12th of April, 2019.
 
 - `preamble.tex` : packages, commands and margins of the documents.
