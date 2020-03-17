@@ -32,7 +32,7 @@ The *Pedersen hash* of a sequence of bits `M` is constructed as follows:
 
 - We define the Pedersen hash of `M` as 
     ```
-    H(M) = <M_0>*P_0 + ... <M_l>*P_l
+    H(M) = <M_0>*P_0 + ... <M_l>*P_l 
     ```
 
 Note that the expression above is a linear combination of elements of `G`, so itself is also an element of `G`. That is, the resulting Pedersen hash `H(M)` is a point of the elliptic curve `E` of order `r`.
@@ -41,8 +41,58 @@ Note that the expression above is a linear combination of elements of `G`, so it
 
 We generate the points $P_0,\dots,P_{{k}}$ in such a manner that it is difficult to find a connection between any of these two points. More precisely, we take  D =  "string$\_$seed" followed by a byte S holding that smallest number that H = Keccak256(D || S) results in a point in the elliptic curve $E$.
   
-## Security Considerations
+## Circuit implementation
 
 
+In the circuit **PEDERSEN HASH** depicted in next figure, we described using high-level operation gates the circuit used to compute the Pedersen hash of a message `M`. 
 
-## Example
+![](https://i.imgur.com/8ccgWJ5.png)
+
+The circuit is designed to compute separetely each term of the sum defining `H(M)` and add all the terms together at the end of the circuit. More precisely, the subcircuit **MULTIPLICATION** takes as input a sequence of bits `M_i` and returns the point `<M_i>*P_i`. Then the sum of all these points is the output of the circuit.
+
+![](https://i.imgur.com/NfL3wEt.png)
+
+<!-- TODO: Figure MULTIPLICATION is wrong! change: subindices and exponents -->
+
+As the set of generators are fixed points of the curve, their multiples can be precomputed and hard-coded in the circuit, Then, it is possible to select the right points by using lookup windows. This is done as shown in the circuit called **SELECTOR**, represented in the figure below. In this case, the design makes use of 3-bit windows, which means that the circuit receives a 3-bit chunk input `m_j = [b0 b1 b2]` and returns the point `enc(m_j)*P_i`. The first two bits of the input are used to select the right multiple of the point and last bit decides the sign of the point. The sign determines if the `x`-coordinate should be taken positive or negative, as with Edwards curves, negating a point corresponds to the negation of its first coordinate. 
+
+![](https://i.imgur.com/uLpB90G.png)
+
+#### Note on efficiency
+Each 3-bit message chunk corresponds to a window called selector and each chunk is encoded as an integer from the set `{-4,..,4}\{0}`. This allows a more efficient lookup of the window entry for each chunk than if the set `{1,..,8}` had been used, because a point can be conditionally negated using only a single constraint.
+
+#### Note on security
+As there are up to 62 segments per each generator `P_i`, the largest multiple of the generator `P_i` is `nxP_i` with 
+```
+n = 2^0 * 4 + 2^4 * 4 + ... + (2^4)^61 * 4 
+```
+It is easy to check that `n < (l-1)/2`, which prevents overflow. 
+
+
+## Example (or test vectors)
+
+Consider the sequence of bits
+
+```
+M = 
+```
+
+and the generators of Baby Jubjub
+
+
+```
+P0 = 
+P1 = 
+P2 = 
+P3 = 
+...
+P? = 
+```
+
+Add intermediate computations... 
+
+Then 
+
+```
+H(M) = 
+```
