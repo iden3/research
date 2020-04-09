@@ -20,7 +20,7 @@ The *Pedersen hash* of a sequence of bits `M` is constructed as follows:
 - Encode each chunk `m_j` as an integer from the set `[-4..-1,1..4]` the following way:
 
     ```
-    enc(m_j) = (1+b_0+2*b_1) (1 - 2*b_2)
+    enc(m_j) = (1+b_0+2*b_1)*(1 - 2*b_2)
     ```
     and let 
 
