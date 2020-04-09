@@ -71,28 +71,28 @@ It is easy to check that `n < (l-1)/2`, which prevents overflow.
 
 ## Example (or test vectors)
 
-Consider the sequence of bits
+TODO: Add generators of Baby Jubjub + add intermediate results, if possible.
+
+### Test vector 1
+
+The Pedersen hash of 
+
+```
+M = 0
+```
+is the point 
+```
+H(M) = (3293356515610993045079966956177080131157890267334663226259472478712367818746,20570562226431668734460952502559008517794812804909793924337438584847726792503)
+```
+
+### Test vector 2
+
+The Pedersen hash of (253 ones?)
 
 ```
 M = 
 ```
-
-and the generators of Baby Jubjub
-
-
+is the point 
 ```
-P0 = 
-P1 = 
-P2 = 
-P3 = 
-...
-P? = 
-```
-
-Add intermediate computations... 
-
-Then 
-
-```
-H(M) = 
+H(M) = (19092467152194012325865035228998940905832420421599727109297982302583412687773,19649890926653253036180932065143651127102491817151864665933125818825159044633)
 ```
