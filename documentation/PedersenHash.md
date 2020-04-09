@@ -17,10 +17,10 @@ The *Pedersen hash* of a sequence of bits `M` is constructed as follows:
     ```
     where each term `m_j` is a chunk of 3 bits `[b_0 b_1 b_2]`. When `i = 0,..., l-1` then `k_i = 62` and for `i = l`, then `k_i <= 62`.
 
-- Encode each chunk `m_j` as an integer from the set [-4..-1,1..4] the following way:
+- Encode each chunk `m_j` as an integer from the set `[-4..-1,1..4]` the following way:
 
     ```
-    enc(m_j) = 1+b_0+2*b_1) (1 - 2*b_2)
+    enc(m_j) = (1+b_0+2*b_1) (1 - 2*b_2)
     ```
     and let 
 
