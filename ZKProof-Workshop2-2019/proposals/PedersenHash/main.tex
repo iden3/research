@@ -93,7 +93,7 @@ The Pedersen hash has already been defined and used by the ZCash team in Sapling
 			\end{gather*}
 		where the $m_j$ terms are chunks of 4 bits $[b_0\: b_1\: b_2\: b_3]$. 
 		Define  
-			$$ enc(m_j) = (2b_3-1) 
+			$$ enc(m_j) = (1 - 2b_3) 
 			\cdot (1+b_{0}+2b_{1}+4b_{2}) $$
 		and let 
 			$$ \langle M_i \rangle = \sum_{j=0}^{k_i-1} enc(m_j) \cdot 2^{5j}.	$$
